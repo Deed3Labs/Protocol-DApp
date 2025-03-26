@@ -1,9 +1,17 @@
 import { cloneDeep } from "lodash-es";
 import { FileClient } from "~~/clients/files.client";
 import { DeedInfoModel } from "~~/models/deed-info.model";
-import { FileFieldKeyLabel } from "~~/models/file.model";
+import { FileFieldKey, FileFieldKeyLabel } from "~~/models/file.model";
 import { pushObjectToIpfs } from "~~/servers/ipfs";
 import logger from "~~/services/logger.service";
+
+// Define the metadata type for Pinata upload
+interface DeedMetadata {
+  assetType: string;
+  definition: string;
+  configuration: string;
+  owner: string;
+}
 
 export const uploadFiles = async (
   fileClient: FileClient,
@@ -11,39 +19,50 @@ export const uploadFiles = async (
   data: DeedInfoModel,
   files?: File[],
   isJson?: boolean
-) => {
+): Promise<DeedMetadata | DeedInfoModel | null> => {
   try {
     // Handle file uploads first
     if (files) {
+      const updatedData = cloneDeep(data);
       // Upload files to Pinata
       const fileHashes = await Promise.all(
         files.map(async (file) => {
-          const formData = new FormData();
-          formData.append("file", file);
-          const response = await fileClient.uploadFile(formData);
+          // Create a FileModel object from the File
+          const fileModel = {
+            id: file.name,
+            fileId: file.name,
+            owner: data.ownerInformation.walletAddress,
+            fileName: file.name,
+            fileSize: file.size,
+            fileType: file.type,
+            fileHash: "",
+            fileUrl: URL.createObjectURL(file)
+          };
+          const response = await fileClient.uploadFile(fileModel, authToken);
           return response.hash;
         })
       );
-      // Update data with file hashes
-      // Implementation depends on your file structure
+      // Return the updated DeedInfoModel with file hashes
+      return updatedData;
     }
 
     // If this is a JSON upload, prepare the metadata
     if (isJson) {
-      const metadata = {
-        name: `${data.propertyDetails.propertyAddress}`,
-        description: data.propertyDetails.propertyDescription,
-        image: data.propertyDetails.propertyImages?.[0]?.fileId,
-        external_url: `https://app.deed3.io/overview/${data.id}`,
-        attributes: [
-          { trait_type: "Type", value: data.propertyDetails.propertyType },
-          { trait_type: "Address", value: data.propertyDetails.propertyAddress },
-        ],
+      // Create metadata object that matches the contract's expected format
+      const metadata: DeedMetadata = {
+        assetType: data.propertyDetails.propertyType,
+        definition: data.propertyDetails.propertyDescription,
+        configuration: JSON.stringify({
+          ...data.propertyDetails,
+          ownerInformation: data.ownerInformation,
+          otherInformation: data.otherInformation
+        }),
+        owner: data.ownerInformation.walletAddress,
       };
       return metadata;
     }
 
-    return data;
+    return null;
   } catch (error) {
     logger.error({ message: "Error uploading files", error });
     return null;
@@ -222,10 +241,15 @@ export function getSupportedFiles(
     );
   }
 
-  if (includeAll || (data.agreement && (!old || old.agreement !== data.agreement))) {
+  // Other information files
+  if (
+    includeAll ||
+    (data.otherInformation.agreement?.length &&
+      (!old || old.otherInformation.agreement !== data.otherInformation.agreement))
+  ) {
     files.push(
       new FileFieldKeyLabel({
-        key: ["agreement", undefined],
+        key: ["otherInformation", "agreement"] as FileFieldKey,
         label: "Agreement",
         multiple: true,
         restricted: true,
@@ -233,10 +257,14 @@ export function getSupportedFiles(
     );
   }
 
-  if (includeAll || (data.process && (!old || old.process !== data.process))) {
+  if (
+    includeAll ||
+    (data.otherInformation.process?.length &&
+      (!old || old.otherInformation.process !== data.otherInformation.process))
+  ) {
     files.push(
       new FileFieldKeyLabel({
-        key: ["process", undefined],
+        key: ["otherInformation", "process"] as FileFieldKey,
         label: "Process",
         multiple: true,
         restricted: true,
@@ -244,10 +272,14 @@ export function getSupportedFiles(
     );
   }
 
-  if (includeAll || (data.process && (!old || old.process !== data.process))) {
+  if (
+    includeAll ||
+    (data.otherInformation.documentNotorization?.length &&
+      (!old || old.otherInformation.documentNotorization !== data.otherInformation.documentNotorization))
+  ) {
     files.push(
       new FileFieldKeyLabel({
-        key: ["documentNotorization", undefined],
+        key: ["otherInformation", "documentNotorization"] as FileFieldKey,
         label: "Document Notorization",
         multiple: true,
         restricted: true,
@@ -261,7 +293,7 @@ export function getSupportedFiles(
 function cleanObject(obj: any) {
   Object.keys(obj).forEach(key => {
     if (obj[key] && typeof obj[key] === "object") cleanObject(obj[key]);
-    else if (obj[key] === undefined) delete obj[key]; // or set to null
+    else if (obj[key] === undefined) delete obj[key];
   });
   return obj;
 }

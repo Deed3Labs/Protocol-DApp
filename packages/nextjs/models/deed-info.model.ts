@@ -104,21 +104,30 @@ export interface DeedInfoModel {
     ownerType: string;
     ownerName: string;
     walletAddress: string;
-    // ... other owner fields
+    ids?: string;
+    proofBill?: string;
+    articleIncorporation?: string;
+    operatingAgreement?: string;
+    supportingDoc?: Array<{ fileId?: string }>;
   };
   propertyDetails: {
     propertyType: string;
     propertyAddress: string;
     propertyDescription: string;
-    // ... other property fields
+    propertyCity: string;
+    propertyState: string;
+    propertyImages?: Array<{ fileId?: string }>;
+    propertyDeedOrTitle?: string;
+    propertyPurchaseContract?: string;
+    stateFillings?: Array<{ fileId?: string }>;
   };
   otherInformation: {
-    wrapper: string;
-    // ... other fields
+    agreement?: Array<{ fileId?: string }>;
+    process?: Array<{ fileId?: string }>;
+    documentNotorization?: Array<{ fileId?: string }>;
   };
   paymentInformation: {
     paymentType: string;
-    // ... other payment fields
   };
   isValidated?: boolean;
   mintedId?: number;

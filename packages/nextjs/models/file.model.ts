@@ -16,15 +16,14 @@ export interface FileValidationModel {
 }
 
 export interface FileModel {
-  _id?: ObjectId;
   id: string;
   fileId: string;
   owner: string;
   fileName: string;
-  mimetype: string | null;
-  size: number;
-  timestamp: Date;
-  restricted?: boolean;
+  fileSize: number;
+  fileType: string;
+  fileHash: string;
+  fileUrl: string;
 }
 
 export type FileFieldKey = [
@@ -33,6 +32,9 @@ export type FileFieldKey = [
     | keyof OwnerInformationModel
     | keyof PropertyDetailsModel
     | keyof OtherInformationModel
+    | "agreement"
+    | "process"
+    | "documentNotorization"
     | undefined
   ),
 ];

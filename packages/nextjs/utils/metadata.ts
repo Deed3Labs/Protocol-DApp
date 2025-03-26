@@ -1,3 +1,5 @@
+import { DeedInfoModel } from "~~/models/deed-info.model";
+
 export const formatMetadataForRenderer = (data: DeedInfoModel) => {
   return {
     name: `${data.propertyDetails.propertyAddress}, ${data.propertyDetails.propertyCity}, ${data.propertyDetails.propertyState}`,
