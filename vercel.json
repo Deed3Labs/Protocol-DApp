@@ -1,0 +1,11 @@
+{
+  "builds": [
+    {
+      "src": "packages/nextjs/package.json",
+      "use": "@vercel/next",
+      "config": {
+        "installCommand": "yarn install --frozen-lockfile --network-timeout 100000"
+      }
+    }
+  ]
+} 
