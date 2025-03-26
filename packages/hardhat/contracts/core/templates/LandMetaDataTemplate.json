@@ -1,0 +1,137 @@
+{
+  "name": "123 Main Street, Austin, Texas",
+  "description": "5-acre residential parcel in Austin, TX with road access, creek, and oak trees. Property has been surveyed for residential construction and has approved septic design.",
+  "image": "ipfs://bafybeibxqidr4kd7iwhztcrbq5jvkr7ce2t66ehdoanerguqsd3v2w4qxa",
+  "external_url": "https://yourdeedwebsite.com/deed/1",
+  "background_color": "FFFFFF",
+  
+  "gallery": [
+    "ipfs://bafybeibxqidr4kd7iwhztcrbq5jvkr7ce2t66ehdoanerguqsd3v2w4qxa",
+    "ipfs://bafybeiei7jtjwj5oq3wm6r64lobxp4njcx6pckys5gwvuuhqtu6tdbsl6m",
+    "ipfs://bafybeier2n2joqom3rg4gdhyvwll7zqaapv5kagb23xv56fe5gonggve24",
+    "ipfs://bafybeiczb6vachpdgfghfapqkem6262hdyba5dtagx35sg6qrs7osjm4ni"
+  ],
+  
+  "attributes": [
+    {
+      "trait_type": "Asset Type",
+      "value": "Land"
+    },
+    {
+      "trait_type": "Validation Status",
+      "value": "Unvalidated"
+    },
+    {
+      "trait_type": "Operating Agreement",
+      "value": "Standard Land Agreement v1.0"
+    },
+    {
+      "trait_type": "Country",
+      "value": "United States"
+    },
+    {
+      "trait_type": "State",
+      "value": "Texas"
+    },
+    {
+      "trait_type": "County",
+      "value": "Travis"
+    },
+    {
+      "trait_type": "City",
+      "value": "Austin"
+    },
+    {
+      "trait_type": "Street Number",
+      "value": "123"
+    },
+    {
+      "trait_type": "Street Name",
+      "value": "Main Street"
+    },
+    {
+      "trait_type": "Parcel Number",
+      "value": "12345-67890-AB"
+    },
+    {
+      "trait_type": "Holding Entity",
+      "value": "Your LLC"
+    },
+    {
+      "trait_type": "Latitude",
+      "value": "30.2672"
+    },
+    {
+      "trait_type": "Longitude",
+      "value": "-97.7431"
+    },
+    {
+      "trait_type": "Acres",
+      "value": "5.2"
+    },
+    {
+      "trait_type": "Parcel Use",
+      "value": "Residential"
+    },
+    {
+      "trait_type": "Zoning",
+      "value": "Single Family Residential"
+    },
+    {
+      "trait_type": "Zoning Code",
+      "value": "SF-2"
+    },
+    {
+      "trait_type": "Tax Value Source",
+      "value": "Travis County Tax Office"
+    },
+    {
+      "trait_type": "Tax Assessed Value (USD)",
+      "value": "450,000"
+    },
+    {
+      "trait_type": "Estimated Value Source",
+      "value": "Zillow"
+    },
+    {
+      "trait_type": "Estimated Market Value (USD)",
+      "value": "520,000"
+    }
+  ],
+  
+  "properties": {
+    "configuration": "Zoning: R-1; Utilities: Water, Electric; Survey: 2023-01-15",
+    "definition": "5-acre residential parcel in Austin, TX; Lot #12345",
+    "legal": {
+      "deed_type": "Warranty Deed",
+      "recording_date": "2023-01-15",
+      "recording_number": "2023-012345",
+      "legal_description": "Lot 12, Block 3, Example Subdivision, according to the map or plat thereof recorded in Volume 100, Page 45, of the Map Records of Travis County, Texas"
+    },
+    "value": {
+      "tax_value_source": "Travis County Tax Office",
+      "tax_assessed_value_usd": "450000",
+      "estimated_value_source": "Zillow",
+      "estimated_market_value_usd": "520000"
+    },
+    "utilities": {
+      "water": true,
+      "electricity": true,
+      "natural_gas": false,
+      "sewer": false,
+      "internet": false
+    },
+    "features": [
+      "Creek",
+      "Oak Trees",
+      "Hill Country Views",
+      "Road Access"
+    ],
+    "documents": {
+      "survey": "ipfs://QmSurveyPDFCIDHere",
+      "title_report": "ipfs://QmTitleReportPDFCIDHere",
+      "deed": "ipfs://QmDeedPDFCIDHere"
+    },
+    "additional_info": "Property has been surveyed for residential construction and has approved septic design."
+  }
+}

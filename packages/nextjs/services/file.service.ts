@@ -2,46 +2,53 @@ import { cloneDeep } from "lodash-es";
 import { FileClient } from "~~/clients/files.client";
 import { DeedInfoModel } from "~~/models/deed-info.model";
 import { FileFieldKeyLabel } from "~~/models/file.model";
+import { pushObjectToIpfs } from "~~/servers/ipfs";
+import logger from "~~/services/logger.service";
 
-export async function uploadFiles(
+export const uploadFiles = async (
   fileClient: FileClient,
   authToken: string,
   data: DeedInfoModel,
-  old?: DeedInfoModel,
-  publish: boolean = false,
-  isMinted: boolean = false,
-) {
-  const toBeUploaded = getSupportedFiles(data, old, publish, isMinted);
+  files?: File[],
+  isJson?: boolean
+) => {
+  try {
+    // Handle file uploads first
+    if (files) {
+      // Upload files to Pinata
+      const fileHashes = await Promise.all(
+        files.map(async (file) => {
+          const formData = new FormData();
+          formData.append("file", file);
+          const response = await fileClient.uploadFile(formData);
+          return response.hash;
+        })
+      );
+      // Update data with file hashes
+      // Implementation depends on your file structure
+    }
 
-  const payload = cloneDeep(data);
+    // If this is a JSON upload, prepare the metadata
+    if (isJson) {
+      const metadata = {
+        name: `${data.propertyDetails.propertyAddress}`,
+        description: data.propertyDetails.propertyDescription,
+        image: data.propertyDetails.propertyImages?.[0]?.fileId,
+        external_url: `https://app.deed3.io/overview/${data.id}`,
+        attributes: [
+          { trait_type: "Type", value: data.propertyDetails.propertyType },
+          { trait_type: "Address", value: data.propertyDetails.propertyAddress },
+        ],
+      };
+      return metadata;
+    }
 
-  await Promise.all(
-    toBeUploaded
-      .filter(x => !!x.getFile(data) && (!x.restricted || !publish))
-      .map(async x => {
-        const files = x.getFile(data);
-        return Promise.all(
-          files.map(async (fileDatum, i) => {
-            let fileId;
-            if (publish) {
-              fileId = await fileClient.publish(fileDatum, x.label);
-            } else {
-              fileId = await fileClient.uploadFile(fileDatum, x.label);
-            }
-
-            // @ts-ignore
-            if (x.multiple) payload[x.key[0]][x.key[1]][i].fileId = fileId;
-            // @ts-ignore
-            else payload[x.key[0]][x.key[1]].fileId = fileId;
-          }),
-        );
-      }),
-  ).catch(error => {
-    throw error;
-  });
-
-  return cleanObject(payload) as DeedInfoModel;
-}
+    return data;
+  } catch (error) {
+    logger.error({ message: "Error uploading files", error });
+    return null;
+  }
+};
 
 // export async function fetchFileInfos(deedData: DeedInfoModel, authToken?: string) {
 //   const files = getSupportedFiles(deedData);

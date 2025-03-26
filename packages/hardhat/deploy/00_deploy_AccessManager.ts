@@ -1,3 +1,8 @@
+/* 
+ * DEPRECATED: AccessManager is now integrated into DeedNFT
+ * This file is kept for reference but is no longer used in the deployment process
+ */
+
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
 import { HardhatRuntimeEnvironment } from "hardhat/types";
 import { DeployFunction } from "hardhat-deploy/types";
@@ -6,6 +11,11 @@ import { getDeployArtifact } from "../scripts/utils";
 
 const contractName = "AccessManager";
 const deployAccessManager: DeployFunction = async function (hre: HardhatRuntimeEnvironment) {
+  console.log("DEPRECATED: AccessManager is now integrated into DeedNFT");
+  return;
+  
+  // The following code is kept for reference only
+  /*
   const namedAccounts = await hre.getNamedAccounts();
   const manager = namedAccounts.manager;
   console.log({ manager });
@@ -33,8 +43,10 @@ const deployAccessManager: DeployFunction = async function (hre: HardhatRuntimeE
   const tx = contract.deploymentTransaction();
   const artifacts = await hre.deployments.getExtendedArtifact(contractName);
   exportContractResult(hre, contractName, proxyAddress, artifacts, tx, []);
+  */
 };
 
 export default deployAccessManager;
 
-deployAccessManager.tags = [contractName, "core"];
+// Remove this tag to prevent deployment
+// deployAccessManager.tags = [contractName, "core"];

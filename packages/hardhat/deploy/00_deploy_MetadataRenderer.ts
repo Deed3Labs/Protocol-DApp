@@ -3,17 +3,13 @@ import { HardhatRuntimeEnvironment } from "hardhat/types";
 import exportContractResult from "../scripts/export-contract";
 import { getDeployArtifact } from "../scripts/utils";
 
-const contractName = "SubdivisionNFT";
-const deploySubdivisionNFT: DeployFunction = async function (hre: HardhatRuntimeEnvironment) {
-  let proxyAddress = getDeployArtifact(hre.network.name, contractName)?.address;
-  const contractFactory = await hre.ethers.getContractFactory(contractName);
+const contractName = "MetadataRenderer";
+const deployMetadataRenderer: DeployFunction = async function (hre: HardhatRuntimeEnvironment) {
+  const namedAccounts = await hre.getNamedAccounts();
+  const deployer = namedAccounts.deployer;
   
-  // Get DeedNFT address
-  const deedNFT = getDeployArtifact(hre.network.name, "DeedNFT");
-  if (!deedNFT) {
-    console.log("DeedNFT must be deployed first");
-    return;
-  }
+  let proxyAddress = getDeployArtifact(hre.network.name, contractName)?.address;
+  const contractFactory = await hre.ethers.getContractFactory("core/MetadataRenderer");
   
   let contract;
   if (proxyAddress) {
@@ -24,8 +20,8 @@ const deploySubdivisionNFT: DeployFunction = async function (hre: HardhatRuntime
     contract = await result.waitForDeployment();
     console.log(`<<${contractName}>> upgraded with address ${await result.getAddress()} for proxy`, proxyAddress);
   } else {
-    // Deploy new proxy with only DeedNFT address (no AccessManager)
-    const result = await hre.upgrades.deployProxy(contractFactory, [deedNFT.address], {
+    // Deploy new proxy
+    const result = await hre.upgrades.deployProxy(contractFactory, [deployer], {
       initializer: "initialize",
       redeployImplementation: "onchange",
       verifySourceCode: true,
@@ -40,7 +36,6 @@ const deploySubdivisionNFT: DeployFunction = async function (hre: HardhatRuntime
   exportContractResult(hre, contractName, proxyAddress, artifacts, tx, []);
 };
 
-export default deploySubdivisionNFT;
+export default deployMetadataRenderer;
 
-deploySubdivisionNFT.tags = ["SubdivisionNFT", "core"];
-deploySubdivisionNFT.dependencies = ["DeedNFT"];
+deployMetadataRenderer.tags = ["MetadataRenderer", "core"]; 

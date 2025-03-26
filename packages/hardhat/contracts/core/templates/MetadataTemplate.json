@@ -1,0 +1,512 @@
+{
+  "templates": {
+    "property": {
+      "name": "[STREET_NUMBER] [STREET_NAME], [CITY], [STATE] #[TOKEN_ID]",
+      "description": "[DETAILED_DESCRIPTION_OF_PROPERTY]",
+      "image": "ipfs://[MAIN_IMAGE_CID]",
+      "external_url": "https://[YOUR_WEBSITE]/deed/[TOKEN_ID]",
+      "background_color": "FFFFFF",
+      "animation_url": "ipfs://[OPTIONAL_3D_MODEL_OR_VIDEO_CID]",
+      
+      "gallery": [
+        "ipfs://[IMAGE1_CID]",
+        "ipfs://[IMAGE2_CID]",
+        "ipfs://[IMAGE3_CID]",
+        "ipfs://[IMAGE4_CID]"
+      ],
+      
+      "attributes": [
+        {
+          "trait_type": "Asset Type",
+          "value": "Land"
+        },
+        {
+          "trait_type": "Validation Status",
+          "value": "Unvalidated"
+        },
+        {
+          "trait_type": "Operating Agreement",
+          "value": "Standard Land Agreement v1.0"
+        },
+        {
+          "trait_type": "Country",
+          "value": "United States"
+        },
+        {
+          "trait_type": "State",
+          "value": "Texas"
+        },
+        {
+          "trait_type": "County",
+          "value": "Travis"
+        },
+        {
+          "trait_type": "City",
+          "value": "Austin"
+        },
+        {
+          "trait_type": "Street Number",
+          "value": "123"
+        },
+        {
+          "trait_type": "Street Name",
+          "value": "Main Street"
+        },
+        {
+          "trait_type": "Parcel Number",
+          "value": "12345-67890-AB"
+        },
+        {
+          "trait_type": "Holding Entity",
+          "value": "Example LLC"
+        },
+        {
+          "trait_type": "Latitude",
+          "value": "30.2672"
+        },
+        {
+          "trait_type": "Longitude",
+          "value": "-97.7431"
+        },
+        {
+          "trait_type": "Acres",
+          "value": "5.2"
+        },
+        {
+          "trait_type": "Parcel Use",
+          "value": "Residential"
+        },
+        {
+          "trait_type": "Zoning",
+          "value": "Single Family Residential"
+        },
+        {
+          "trait_type": "Zoning Code",
+          "value": "SF-2"
+        },
+        {
+          "trait_type": "Tax Value Source",
+          "value": "Travis County Tax Office"
+        },
+        {
+          "trait_type": "Tax Assessed Value (USD)",
+          "value": "450,000"
+        },
+        {
+          "trait_type": "Estimated Value Source",
+          "value": "Zillow"
+        },
+        {
+          "trait_type": "Estimated Market Value (USD)",
+          "value": "520,000"
+        },
+        {
+          "trait_type": "Local Appraisal Source",
+          "value": "Johnson Appraisals LLC"
+        },
+        {
+          "trait_type": "Local Appraised Value (USD)",
+          "value": "510,000"
+        },
+        {
+          "trait_type": "Build Year",
+          "value": "1985"
+        },
+        {
+          "trait_type": "Confidence Score",
+          "value": "95%"
+        },
+        {
+          "trait_type": "Beneficiary",
+          "value": "0x1234567890123456789012345678901234567890"
+        }
+      ],
+      
+      "properties": {
+        "configuration": "Zoning: R-1; Utilities: Water, Electric; Survey: 2023-01-15",
+        "definition": "5-acre residential parcel in Austin, TX; Lot #12345",
+        "legal": {
+          "deed_type": "Warranty Deed",
+          "recording_date": "2023-01-15",
+          "recording_number": "2023-012345",
+          "legal_description": "Lot 12, Block 3, Example Subdivision, according to the map or plat thereof recorded in Volume 100, Page 45, of the Map Records of Travis County, Texas"
+        },
+        "value": {
+          "tax_value_source": "Travis County Tax Office",
+          "tax_assessed_value_usd": "450000",
+          "estimated_value_source": "Zillow",
+          "estimated_market_value_usd": "520000",
+          "local_appraisal_source": "Johnson Appraisals LLC",
+          "local_appraised_value_usd": "510000"
+        },
+        "utilities": {
+          "water": true,
+          "electricity": true,
+          "natural_gas": false,
+          "sewer": false,
+          "internet": false
+        },
+        "features": [
+          "Creek",
+          "Oak Trees",
+          "Hill Country Views",
+          "Road Access"
+        ],
+        "documents": {
+          "survey": "ipfs://[SURVEY_PDF_CID]",
+          "title_report": "ipfs://[TITLE_REPORT_PDF_CID]",
+          "deed": "ipfs://[DEED_PDF_CID]"
+        },
+        "map_overlay": "ipfs://[MAP_OVERLAY_IMAGE_CID]",
+        "build_year": "1985",
+        "additional_info": "Property has been surveyed for residential construction and has approved septic design."
+      }
+    },
+    
+    "vehicle": {
+      "name": "[YEAR] [MAKE] [MODEL] #[TOKEN_ID]",
+      "description": "[DETAILED_DESCRIPTION_OF_VEHICLE]",
+      "image": "ipfs://[MAIN_IMAGE_CID]",
+      "external_url": "https://[YOUR_WEBSITE]/deed/[TOKEN_ID]",
+      "background_color": "FFFFFF",
+      "animation_url": "ipfs://[OPTIONAL_3D_MODEL_OR_VIDEO_CID]",
+      
+      "gallery": [
+        "ipfs://[IMAGE1_CID]",
+        "ipfs://[IMAGE2_CID]",
+        "ipfs://[IMAGE3_CID]",
+        "ipfs://[IMAGE4_CID]"
+      ],
+      
+      "attributes": [
+        {
+          "trait_type": "Asset Type",
+          "value": "Vehicle"
+        },
+        {
+          "trait_type": "Validation Status",
+          "value": "Unvalidated"
+        },
+        {
+          "trait_type": "Operating Agreement",
+          "value": "Standard Vehicle Agreement v1.0"
+        },
+        {
+          "trait_type": "Make",
+          "value": "Toyota"
+        },
+        {
+          "trait_type": "Model",
+          "value": "Land Cruiser"
+        },
+        {
+          "trait_type": "Year",
+          "value": "2020"
+        },
+        {
+          "trait_type": "VIN",
+          "value": "1ABCD23EFGH456789"
+        },
+        {
+          "trait_type": "License Plate",
+          "value": "ABC1234"
+        },
+        {
+          "trait_type": "Registration State",
+          "value": "Texas"
+        },
+        {
+          "trait_type": "Color",
+          "value": "Silver"
+        },
+        {
+          "trait_type": "Body Type",
+          "value": "SUV"
+        },
+        {
+          "trait_type": "Fuel Type",
+          "value": "Gasoline"
+        },
+        {
+          "trait_type": "Transmission",
+          "value": "Automatic"
+        },
+        {
+          "trait_type": "Mileage",
+          "value": "45,000"
+        },
+        {
+          "trait_type": "Engine Size",
+          "value": "5.7L V8"
+        },
+        {
+          "trait_type": "Title Number",
+          "value": "12345678901"
+        },
+        {
+          "trait_type": "Title State",
+          "value": "Texas"
+        },
+        {
+          "trait_type": "Title Status",
+          "value": "Clean"
+        },
+        {
+          "trait_type": "Registration Expiration",
+          "value": "2023-12-31"
+        },
+        {
+          "trait_type": "Holding Entity",
+          "value": "Example LLC"
+        },
+        {
+          "trait_type": "Appraisal Source",
+          "value": "Kelly Blue Book"
+        },
+        {
+          "trait_type": "Appraised Value (USD)",
+          "value": "65,000"
+        },
+        {
+          "trait_type": "Estimated Value Source",
+          "value": "NADA Guides"
+        },
+        {
+          "trait_type": "Estimated Market Value (USD)",
+          "value": "68,500"
+        },
+        {
+          "trait_type": "Condition",
+          "value": "Excellent"
+        },
+        {
+          "trait_type": "Last Service Date",
+          "value": "2023-06-15"
+        },
+        {
+          "trait_type": "Confidence Score",
+          "value": "95%"
+        },
+        {
+          "trait_type": "Beneficiary",
+          "value": "0x1234567890123456789012345678901234567890"
+        }
+      ],
+      
+      "properties": {
+        "configuration": "Engine: 5.7L V8; Transmission: Automatic; 4WD",
+        "definition": "2020 Toyota Land Cruiser SUV with 45,000 miles",
+        "vehicle_details": {
+          "make": "Toyota",
+          "model": "Land Cruiser",
+          "year": "2020",
+          "vin": "1ABCD23EFGH456789",
+          "license_plate": "ABC1234",
+          "registration_state": "Texas"
+        },
+        "physical_details": {
+          "color": "Silver",
+          "body_type": "SUV",
+          "fuel_type": "Gasoline",
+          "transmission_type": "Automatic",
+          "mileage": "45000",
+          "engine_size": "5.7L V8"
+        },
+        "ownership_details": {
+          "title_number": "12345678901",
+          "title_state": "Texas",
+          "title_status": "Clean",
+          "registration_expiration": "2023-12-31",
+          "holding_entity": "Example LLC"
+        },
+        "value": {
+          "appraisal_source": "Kelly Blue Book",
+          "appraised_value_usd": "65000",
+          "estimated_value_source": "NADA Guides",
+          "estimated_market_value_usd": "68500"
+        },
+        "condition": {
+          "status": "Excellent",
+          "last_service_date": "2023-06-15"
+        },
+        "documents": {
+          "title": "ipfs://[TITLE_PDF_CID]",
+          "registration": "ipfs://[REGISTRATION_PDF_CID]",
+          "service_records": "ipfs://[SERVICE_RECORDS_PDF_CID]"
+        },
+        "additional_info": "Vehicle has been well-maintained with all scheduled service completed at authorized dealership."
+      }
+    },
+    
+    "equipment": {
+      "name": "[YEAR] [MANUFACTURER] [MODEL] #[TOKEN_ID]",
+      "description": "[DETAILED_DESCRIPTION_OF_EQUIPMENT]",
+      "image": "ipfs://[MAIN_IMAGE_CID]",
+      "external_url": "https://[YOUR_WEBSITE]/deed/[TOKEN_ID]",
+      "background_color": "FFFFFF",
+      "animation_url": "ipfs://[OPTIONAL_3D_MODEL_OR_VIDEO_CID]",
+      
+      "gallery": [
+        "ipfs://[IMAGE1_CID]",
+        "ipfs://[IMAGE2_CID]",
+        "ipfs://[IMAGE3_CID]",
+        "ipfs://[IMAGE4_CID]"
+      ],
+      
+      "attributes": [
+        {
+          "trait_type": "Asset Type",
+          "value": "Commercial Equipment"
+        },
+        {
+          "trait_type": "Validation Status",
+          "value": "Unvalidated"
+        },
+        {
+          "trait_type": "Operating Agreement",
+          "value": "Standard Equipment Agreement v1.0"
+        },
+        {
+          "trait_type": "Manufacturer",
+          "value": "Caterpillar"
+        },
+        {
+          "trait_type": "Model",
+          "value": "336 Excavator"
+        },
+        {
+          "trait_type": "Year",
+          "value": "2019"
+        },
+        {
+          "trait_type": "Serial Number",
+          "value": "CAT0336X19D123456"
+        },
+        {
+          "trait_type": "Category",
+          "value": "Heavy Equipment"
+        },
+        {
+          "trait_type": "Type",
+          "value": "Excavator"
+        },
+        {
+          "trait_type": "Dimensions",
+          "value": "35.8ft x 11.2ft x 10.5ft"
+        },
+        {
+          "trait_type": "Weight",
+          "value": "80,000 lbs"
+        },
+        {
+          "trait_type": "Power Source",
+          "value": "Diesel"
+        },
+        {
+          "trait_type": "Operating Hours",
+          "value": "3,500"
+        },
+        {
+          "trait_type": "Purchase Date",
+          "value": "2019-05-10"
+        },
+        {
+          "trait_type": "Warranty Expiration",
+          "value": "2024-05-10"
+        },
+        {
+          "trait_type": "Holding Entity",
+          "value": "Example Construction LLC"
+        },
+        {
+          "trait_type": "Location",
+          "value": "Austin, TX"
+        },
+        {
+          "trait_type": "Appraisal Source",
+          "value": "Equipment Appraisers Inc."
+        },
+        {
+          "trait_type": "Appraised Value (USD)",
+          "value": "320,000"
+        },
+        {
+          "trait_type": "Estimated Value Source",
+          "value": "MachineryTrader"
+        },
+        {
+          "trait_type": "Estimated Market Value (USD)",
+          "value": "335,000"
+        },
+        {
+          "trait_type": "Depreciation Schedule",
+          "value": "MACRS 5-year"
+        },
+        {
+          "trait_type": "Condition",
+          "value": "Good"
+        },
+        {
+          "trait_type": "Last Service Date",
+          "value": "2023-07-20"
+        },
+        {
+          "trait_type": "Maintenance Schedule",
+          "value": "500 hour intervals"
+        },
+        {
+          "trait_type": "Confidence Score",
+          "value": "92%"
+        },
+        {
+          "trait_type": "Beneficiary",
+          "value": "0x1234567890123456789012345678901234567890"
+        }
+      ],
+      
+      "properties": {
+        "configuration": "Engine: Cat C9.3B; Hydraulic System: 35,000 psi; Bucket Capacity: 3.2 cubic yards",
+        "definition": "2019 Caterpillar 336 Excavator with 3,500 operating hours",
+        "equipment_details": {
+          "manufacturer": "Caterpillar",
+          "model": "336 Excavator",
+          "serial_number": "CAT0336X19D123456",
+          "year": "2019",
+          "category": "Heavy Equipment",
+          "type": "Excavator"
+        },
+        "physical_details": {
+          "dimensions": "35.8ft x 11.2ft x 10.5ft",
+          "weight": "80000",
+          "power_source": "Diesel",
+          "operating_hours": "3500"
+        },
+        "ownership_details": {
+          "purchase_date": "2019-05-10",
+          "warranty_expiration": "2024-05-10",
+          "holding_entity": "Example Construction LLC",
+          "location": "Austin, TX"
+        },
+        "value": {
+          "appraisal_source": "Equipment Appraisers Inc.",
+          "appraised_value_usd": "320000",
+          "estimated_value_source": "MachineryTrader",
+          "estimated_market_value_usd": "335000",
+          "depreciation_schedule": "MACRS 5-year"
+        },
+        "condition": {
+          "status": "Good",
+          "last_service_date": "2023-07-20",
+          "maintenance_schedule": "500 hour intervals"
+        },
+        "documents": {
+          "purchase_agreement": "ipfs://[PURCHASE_AGREEMENT_PDF_CID]",
+          "warranty": "ipfs://[WARRANTY_PDF_CID]",
+          "service_records": "ipfs://[SERVICE_RECORDS_PDF_CID]",
+          "operating_manual": "ipfs://[MANUAL_PDF_CID]"
+        },
+        "additional_info": "Equipment includes GPS tracking system and telematics package."
+      }
+    }
+  }
+}

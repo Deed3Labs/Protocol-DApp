@@ -100,30 +100,28 @@ export interface DeedDetailsModel {
 
 export interface DeedInfoModel {
   id?: string;
-  mintedId?: number;
+  ownerInformation: {
+    ownerType: string;
+    ownerName: string;
+    walletAddress: string;
+    // ... other owner fields
+  };
+  propertyDetails: {
+    propertyType: string;
+    propertyAddress: string;
+    propertyDescription: string;
+    // ... other property fields
+  };
+  otherInformation: {
+    wrapper: string;
+    // ... other fields
+  };
+  paymentInformation: {
+    paymentType: string;
+    // ... other payment fields
+  };
   isValidated?: boolean;
-  timestamp?: number;
-
-  // 1. Owner Information
-  ownerInformation: OwnerInformationModel;
-
-  // 2. Property Details
-  propertyDetails: PropertyDetailsModel;
-
-  // 3. Other Information
-  otherInformation: OtherInformationModel;
-
-  // 4. Payment Information
-  paymentInformation: PaymentInformationModel;
-
-  // 5. Deed info
-  deedDetails: DeedDetailsModel;
-
-  process?: FileModel[];
-  agreement?: FileModel[];
-  documentNotorization?: FileModel[];
-
-  signatureTx?: string;
+  mintedId?: number;
 }
 
 export interface OpenSeaMetadata {

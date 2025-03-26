@@ -20,13 +20,14 @@ const arbiscanApiKey = process.env.ARBISCAN_API_KEY || "DNXJA8RX2Q3VZ4URQIWP7Z68
 const deployerAccount = process.env.DEPLOYER_ACCOUNT!;
 const config: HardhatUserConfig = {
   solidity: {
-    version: "0.8.20",
+    version: "0.8.29",
     settings: {
       optimizer: {
         enabled: true,
         // https://docs.soliditylang.org/en/latest/using-the-compiler.html#optimizer-options
         runs: 200,
       },
+      viaIR: true,
       outputSelection: {
         "*": {
           "*": ["abi", "evm.bytecode", "evm.deployedBytecode", "metadata"],
