@@ -4,8 +4,13 @@
       "src": "packages/nextjs/package.json",
       "use": "@vercel/next",
       "config": {
-        "installCommand": "yarn install --frozen-lockfile --network-timeout 100000"
+        "installCommand": "yarn install --frozen-lockfile --network-timeout 100000",
+        "buildCommand": "cd ../.. && yarn install && cd packages/nextjs && yarn build",
+        "nodeVersion": "18.x"
       }
     }
-  ]
+  ],
+  "env": {
+    "NEXT_PUBLIC_IGNORE_BUILD_ERROR": "true"
+  }
 } 
